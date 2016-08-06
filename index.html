@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+    <html ng-app="testTask">
+        <head>
+            <title>
+                Test task in Angularjs
+            </title>
+            <script type="text/javascript" src="js/lib/jquery.js"></script>
+            <script type="text/javascript" src="js/lib/angular.js"></script>
+            <script type="text/javascript" src="js/app.js"></script>
+        </head>
+        <body ng-controller="contentController as CC">
+            <div ng-init="CC.getRowFromSessionStorage()">
+                <div class="col-mg-12">
+                <input type="text" ng-model="CC.rows" placeholder="Enter the row number" />
+                <button ng-click="CC.pascalTriangle(CC.rows)">Create Triangle</button>
+                </div>
+                <div ng-repeat="data in CC.data track by $index" style=" background-color: {{ CC.colorArray[ $index % CC.colorArray.length] }} ">
+                    <span ng-repeat="value in data track by $index">{{ value }} &nbsp;</span>
+                </div>
+                {{CC.previousData}}
+            </div>
+        </body>
+    </html>
